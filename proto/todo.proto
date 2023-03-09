@@ -1,0 +1,24 @@
+syntax="proto3";
+
+package genproto;
+
+option go_package="GRPC-TODO/proto";
+
+message Store{
+    int64 id = 1;
+    string name = 2;
+    string description = 3;
+    bool is_open = 4;
+    repeated string addresses = 5;
+}
+
+message GeStoreRequest{
+    int64 id = 1;
+
+}
+
+service StoreService{
+    rpc CreateStore(Store) returns(Store);
+    rpc GetStore(GeStoreRequest) returns(Store);
+}
+
